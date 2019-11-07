@@ -8,7 +8,7 @@ urlpatterns = [
     url('sign_in/', views.sign_in, name='sign_in'),
     url('login/', views.login, name='login'),
     url('logout/', views.logout_view, name='logout'),
-    url('profile/', views.profile, name='profile'),
+    url('profile/', views.edit_profile_done, name='profile'),
     url('contact_us_done/', views.contact_us_done, name='contact_us_done'),
     url('', views.homePage, name='home'),
 ]

@@ -11,16 +11,27 @@
 {% block content %}
 
     <div style="margin: 30px;">
-        <form class="ui form" id="login_form"  action="{% url 'sign_in' %}" method="post">{% csrf_token %}
-            <div class="field">
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Username">
+        <form class="ui form" id="login_form" action="{% url 'sign_in' %}" method="post">{% csrf_token %}
+            <div class="column">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Username</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="username" placeholder="Username">
+                            <i class="user icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <div class="ui left icon input">
+                            <input type="password" name="password" placeholder="Password">
+                            <i class="lock icon"></i>
+                        </div>
+                    </div>
+                    <button class="ui button" type="submit" id="submit" name="submit">Login</button>
+
+                </div>
             </div>
-            <div class="field">
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Password">
-            </div>
-            <button class="ui button" type="submit" id="submit" name="submit">Submit</button>
         </form>
         {% if not valid %}
             <div id=”error”>

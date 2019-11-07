@@ -8,13 +8,24 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
+<div style="margin: 30px;">
+<div class="field">
 <p>First Name: <span id="text_first_name" style="color:blue">
     {{ request.user.first_name }}
 </span></p>
+</div>
+<div class="field">
 <p>Last Name: <span id="text_last_name" style="color:blue">
     {{ request.user.last_name }}
 </span></p>
+</div>
+<div class="field">
 <p>User Name: <span id="text_user_name" style="color:blue">
     {{ request.user.username }}
 </span></p>
+<div class="item">
+            <a class="ui button" id="setting" href="{% url 'edit_profile' %}">وبراایش پروفایل</a>
+        </div>
+</div>
+</div>
 {% endblock  %}

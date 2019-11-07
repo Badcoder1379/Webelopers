@@ -18,14 +18,18 @@
 
 <div class="ui menu" id="navbar">
     {% if not request.user.is_authenticated %}
-        <div class="item">
-            <a class="ui primary button" id="register" href="{% url 'register' %}">ثبت نام</a>
+        <div class="ui item">
+            <a class="ui primary button" id="register" href="{% url 'register' %}">
+                ثبت نام
+            </a>
         </div>
     {% endif %}
 
     {% if not request.user.is_authenticated %}
-        <div class="item">
-            <a class="ui button" id="login" href="{% url 'sign_in' %}">ورود</a>
+        <div class="ui item">
+            <a class="ui button" id="login" href="{% url 'sign_in' %}">
+                ورود
+            </a>
         </div>
     {% endif %}
 

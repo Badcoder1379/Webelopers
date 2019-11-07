@@ -52,5 +52,16 @@ def logout_view(request):
     return redirect("/")
 
 
-def profile(request):
+def edit_profile_done(request):
+    if request.POST:
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        if first_name != "":
+            request.user.first_name = first_name
+        if last_name != "":
+            request.user.last_name = last_name
     return render(request, 'profile.html')
+
+
+def edit_profile(request):
+    return render(request, 'edit_profile.html')
