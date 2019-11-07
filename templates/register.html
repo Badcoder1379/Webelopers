@@ -11,7 +11,7 @@
 {% block content %}
 
     <div style="margin: 30px;" id="register_form">
-        <form class="ui form" action="{% url 'home' %}" method="post">{% csrf_token %}
+        <form class="ui form" action="{% url 'register' %}" method="post">{% csrf_token %}
             <div class="field">
                 <label>First Name</label>
                 <input type="text" name="first_name" placeholder="First Name">
