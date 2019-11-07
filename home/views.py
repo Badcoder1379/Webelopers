@@ -22,14 +22,16 @@ def register(request):
 
 
 def sign_in(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, 'logged_in.html')
-    else:
-        return render(request, 'sign_in.html', {'valid': False})
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'logged_in.html')
+        else:
+            return render(request, 'sign_in.html', {'valid': False})
+    return render(request, 'sign_in.html')
 
 
 def contact_us_done(request):
