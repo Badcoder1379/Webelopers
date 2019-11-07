@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm
 
@@ -7,18 +7,31 @@ from home.forms import SignUpForm
 
 
 def homePage(request):
-    return render(request, 'home.html', {'login': False})
+    return render(request, 'home.html')
 
 
 def register(request):
+    Error = ''
     if request.method == "POST":
         form = SignUpForm(request.POST)
+        if form.password1 != form.password2:
+            Error = 'NotEqualPass'
+        users = User.objects.filter(username=form.username)
+        if len(users) != 0:
+            Error = 'ExistedUser'
         form.save()
     return render(request, 'register.html')
 
 
 def sign_in(request):
-    return render(request, 'sign_in.html')
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return render(request, 'logged_in.html')
+    else:
+        return render(request, 'sign_in.html', {'valid': False})
 
 
 def contact_us_done(request):

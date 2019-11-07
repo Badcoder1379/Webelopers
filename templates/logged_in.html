@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Register
+    Logged In User
 {% endblock %}
 
 
@@ -16,17 +16,7 @@
                 <label>First Name</label>
                 <input type="text" name="username" placeholder="First Name">
             </div>
-            <div class="field">
-                <label>Last Name</label>
-                <input type="text" name="password" placeholder="Last Name">
-            </div>
-            <button class="ui button" type="submit" id="submit" name="submit">Submit</button>
         </form>
-        {% if valid %}
-            <div id=”error”>
-                رمز اشتباه!!
-            </div>
-        {% endif %}
     </div>
 
 {% endblock %}
