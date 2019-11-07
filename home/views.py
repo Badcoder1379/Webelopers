@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from home.forms import SignUpForm
 
@@ -29,14 +30,22 @@ def sign_in(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return render(request, 'logged_in.html',
-                          {'register_button': False, 'sign_in_button': False, 'exit_button': True})
+            return login_view(request)
         else:
             return render(request, 'sign_in.html',
                           {'valid': False, 'register_button': True, 'sign_in_button': True, 'exit_button': False})
-    return render(request, 'sign_in.html', {'register_button': True, 'sign_in_button': True, 'exit_button': False})
+    return render(request, 'sign_in.html', {'valid' : True, 'register_button': True, 'sign_in_button': True, 'exit_button': False})
 
 
 def contact_us_done(request):
     return render(request, 'contact_us_done.html',
                   {'register_button': True, 'sign_in_button': True, 'exit_button': False})
+
+
+def login_view(request):
+    return render(request, 'logged_in.html',
+                  {'register_button': False, 'sign_in_button': False, 'exit_button': True})
+
+def logout_view(request):
+    logout_view(request)
+    return homePage(request)

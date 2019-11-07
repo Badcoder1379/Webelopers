@@ -54,7 +54,7 @@
 
 <div style="margin: 30px; margin-top: 500px; background-color: whitesmoke">
     contact us!
-    <form id="contact_us_form" class="ui form" action="{% url 'register' %}" method="post">{% csrf_token %}
+    <form id="contact_us_form" class="ui form" action="{% url 'home' %}" method="post">{% csrf_token %}
         <div class="field">
             <label>Title</label>
             <input type="text" name="title" placeholder="Title">
