@@ -9,4 +9,5 @@ def homePage(request):
 def register(request):
     return render(request, 'register.html')
 
-
+def sign_in(request):
+    return render(request, 'sign_in.html')
