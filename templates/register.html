@@ -10,24 +10,35 @@
 
 {% block content %}
 
-
-<form class="ui form">
-  <div class="field">
-    <label>First Name</label>
-    <input type="text" name="first-name" placeholder="First Name">
-  </div>
-  <div class="field">
-    <label>Last Name</label>
-    <input type="text" name="last-name" placeholder="Last Name">
-  </div>
-  <div class="field">
-    <div class="ui checkbox">
-      <input type="checkbox" tabindex="0" class="hidden">
-      <label>I agree to the Terms and Conditions</label>
+    <div style="margin: 30px;">
+        <form class="ui form">
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" name="first_name" placeholder="First Name">
+            </div>
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" name="last_name" placeholder="Last Name">
+            </div>
+            <div class="field">
+                <label>username</label>
+                <input type="text" name="username" placeholder="username">
+            </div>
+            <div class="Email">
+                <label>First Name</label>
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password1" placeholder="Password">
+            </div>
+            <div class="field">
+                <label>Confirm Password</label>
+                <input type="password" name="password2" placeholder="Confirm Password">
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+        </form>
     </div>
-  </div>
-  <button class="ui button" type="submit">Submit</button>
-</form>
 
 {% endblock %}
 
