@@ -14,15 +14,17 @@ def homePage(request):
 
 def register(request):
     Error = ''
+    form = SignUpForm()
     if request.method == "POST":
         form = SignUpForm(request.POST)
-        if form.password1 != form.password2:
-            Error = 'NotEqualPass'
-        users = User.objects.filter(username=form.username)
-        if len(users) != 0:
-            Error = 'ExistedUser'
-        form.save()
-    return render(request, 'register.html', {'error': Error})
+        # if form.cleaned_data['pass'] != form.password2:
+        #     Error = 'NotEqualPass'
+        # users = User.objects.filter(username=form.username)
+        # if len(users) != 0:
+        #     Error = 'ExistedUser'
+        if form.is_valid():
+            form.save()
+    return render(request, 'register.html', {'form': form})
 
 
 def sign_in(request):
