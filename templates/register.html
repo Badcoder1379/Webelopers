@@ -10,8 +10,8 @@
 
 {% block content %}
 
-    <div style="margin: 30px;" id="register_form">
-        <form class="ui form" action="{% url 'register' %}" method="post">{% csrf_token %}
+    <div style="margin: 30px;">
+        <form id="register_form" class="ui form" action="{% url 'register' %}" method="post">{% csrf_token %}
             <div class="field">
                 <label>First Name</label>
                 <input type="text" name="first_name" placeholder="First Name">
@@ -25,7 +25,7 @@
                 <input type="text" name="username" placeholder="username">
             </div>
             <div class="Email">
-                <label>First Name</label>
+                <label>Email</label>
                 <input type="email" name="email" placeholder="Email">
             </div>
             <div class="field">
