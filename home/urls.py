@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.contrib.auth.models import *
 
-
 from home import views
 
 urlpatterns = [
