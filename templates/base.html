@@ -20,6 +20,7 @@
     <div class="item">
         <a class="ui primary button" id="register" href="{% url 'register' %}">ثبت نام</a>
     </div>
+
     <div class="item">
         <a class="ui button" id="login" href="{% url 'sign_in' %}">ورود</a>
     </div>
@@ -36,5 +37,28 @@
 {% block content %}
 {% endblock %}
 
+
+
+
+<div style="margin: 30px; margin-top: 500px; background-color: whitesmoke">
+        contact us!
+        <form id="contact_us_form" class="ui form" action="{% url 'register' %}" method="post">{% csrf_token %}
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="Title">
+            </div>
+
+            <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" placeholder="Email">
+            </div>
+
+            <div class="field">
+                <label>Text</label>
+                <textarea name="text" placeholder="Text"></textarea>
+            </div>
+            <button class="ui button" type="submit"  >Submit</button>
+        </form>
+    </div>
 </body>
 </html>

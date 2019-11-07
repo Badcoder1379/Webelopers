@@ -13,15 +13,9 @@ def homePage(request):
 
 
 def register(request):
-    Error = ''
     form = SignUpForm()
     if request.method == "POST":
         form = SignUpForm(request.POST)
-        # if form.cleaned_data['pass'] != form.password2:
-        #     Error = 'NotEqualPass'
-        # users = User.objects.filter(username=form.username)
-        # if len(users) != 0:
-        #     Error = 'ExistedUser'
         if form.is_valid():
             form.save()
     return render(request, 'register.html', {'form': form})
@@ -36,3 +30,7 @@ def sign_in(request):
         return render(request, 'logged_in.html')
     else:
         return render(request, 'sign_in.html', {'valid': False})
+
+
+def contact_us_done(request):
+    return render(request, 'contact_us_done.html')
