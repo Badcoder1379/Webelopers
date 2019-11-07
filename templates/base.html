@@ -14,42 +14,39 @@
 
 
 </head>
-<body>
+<body style="background-color: whitesmoke">
 
-<div class="ui menu" id="navbar">
-    {% if not request.user.is_authenticated %}
-        <div class="ui item">
-            <a class="ui primary button" id="register" href="{% url 'register' %}">
-                ثبت نام
-            </a>
+<div id="navbar">
+
+
+    <div class="ui inverted segment">
+        <div class="ui inverted secondary menu" style="font-size: 20px;">
+            <div class="left menu">
+                {% if not request.user.is_authenticated %}
+                    <a class="item" id="register" href="{% url 'register' %}">ثبت نام</a>
+                {% endif %}
+
+                {% if not request.user.is_authenticated %}
+                    <a class="item" id="login" href="{% url 'sign_in' %}">ورود</a>
+                {% endif %}
+
+
+
+                {% if request.user.is_authenticated %}
+                    <a class="item" id="logout" href="{% url 'logout' %}">خروج</a>
+                {% endif %}
+
+            </div>
+
+            <div class="right menu">
+                <a class="item" id="homepage" href="{% url 'home' %}">صفحه اصلی</a>
+                <a class="item" id="contact_us" href="{% url 'contact_us' %}">تماس با ما</a>
+
+            </div>
+
+
         </div>
-    {% endif %}
-
-    {% if not request.user.is_authenticated %}
-        <div class="ui item">
-            <a class="ui button" id="login" href="{% url 'sign_in' %}">
-                ورود
-            </a>
-        </div>
-    {% endif %}
-
-    {% if request.user.is_authenticated %}
-        <div class="item">
-            <a class="ui button" id="logout" href="{% url 'logout' %}">خروج</a>
-        </div>
-    {% endif %}
-
-    {% if request.user.is_authenticated %}
-        <div class="item">
-            <a class="ui button" id="profile" href="{% url 'profile' %}">صفحه پروفابل</a>
-        </div>
-    {% endif %}
-
-
-    <div class="right menu">
-        <a class="item" id="homepage" href="{% url 'home' %}">صفحه اصلی</a>
     </div>
-
 </div>
 
 {% block navbar %}
@@ -60,27 +57,5 @@
 {% endblock %}
 
 
-
-
-<div style="margin: 30px; margin-top: 500px; background-color: whitesmoke">
-    contact us!
-    <form id="contact_us_form" class="ui form" action="{% url 'contact_us_done' %}" method="post">{% csrf_token %}
-        <div class="field">
-            <label>Title</label>
-            <input type="text" name="title" placeholder="Title" required>
-        </div>
-
-        <div class="field">
-            <label>Email</label>
-            <input type="text" name="email" placeholder="Email" required>
-        </div>
-
-        <div class="field">
-            <label>Text</label>
-            <textarea name="text" placeholder="Text" required maxlength="250" minlength="10"></textarea>
-        </div>
-        <button class="ui button" type="submit">Submit</button>
-    </form>
-</div>
 </body>
 </html>

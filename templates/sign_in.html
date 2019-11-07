@@ -9,9 +9,33 @@
 {% endblock %}
 
 {% block content %}
+    <style>
+        .sign_in_form {
+            margin: 5%;
+            margin-top: 2%;
+            margin-left: 30%;
+            margin-right: 30%;
+            background-color: whitesmoke;
+            padding: 3%;
+            border-radius: 3%;
+            border: solid #888888 3px;
+            background-color: white;
+        }
 
-    <div style="margin: 30px;">
-        <form class="ui form" id="login_form" action="{% url 'sign_in' %}" method="post">{% csrf_token %}
+        #h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-top: 3%;
+            font-weight: bold;
+            font-size: 30px;
+            color: #666666;
+        }
+    </style>
+
+    <div>
+    <strong id="h">Sign in form</strong>
+        <form class="ui form sign_in_form" id="login_form" action="{% url 'sign_in' %}" method="post">{% csrf_token %}
             <div class="column">
                 <div class="ui form">
                     <div class="field">

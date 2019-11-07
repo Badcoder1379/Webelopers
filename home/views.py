@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm
@@ -37,6 +38,15 @@ def sign_in(request):
 
 
 def contact_us_done(request):
+    send_mail(
+        subject=request.POST['title'],
+        message=request.POST['text'],
+        from_email='heidary_1379@yahoo.com',
+        recipient_list=['heidary13794@gmial.com'],
+        fail_silently=False,
+        auth_password='444555533333',
+    )
+
     return render(request, 'contact_us_done.html',
                   {'register_button': True, 'sign_in_button': True, 'exit_button': False})
 
@@ -65,3 +75,7 @@ def edit_profile_done(request):
 
 def edit_profile(request):
     return render(request, 'edit_profile.html')
+
+
+def contact_us(request):
+    return render(request, 'contact_us.html')
