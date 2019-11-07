@@ -50,3 +50,7 @@ def logout_view(request):
     print("salam")
     logout(request)
     return redirect("/")
+
+
+def profile(request):
+    return render(request, 'profile.html')

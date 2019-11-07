@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+
+{% block navbar %}
+{% endblock %}
+{% block content %}
+<p>First Name: <span id="text_first_name" style="color:blue">
+    {{ request.user.first_name }}
+</span></p>
+<p><span id="text_last_name" style="color:blue">
+    {{ request.user.last_name }}
+</span></p>
+<p><span id="text_user_name" style="color:blue">
+    {{ request.user.username }}
+</span></p>
+{% endblock  %}
