@@ -65,3 +65,7 @@ def edit_profile_done(request):
 
 def edit_profile(request):
     return render(request, 'edit_profile.html')
+
+
+def load_panel(request):
+    return render(request, 'panel.html')

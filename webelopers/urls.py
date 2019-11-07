@@ -26,6 +26,7 @@ urlpatterns = [
     url('login/', views.login, name='login'),
     url('edit_profile', views.edit_profile, name='edit_profile'),
     url('logout/', views.logout_view, name='logout'),
+    url('panel/', views.load_panel, name='panel'),
     url('profile/', views.edit_profile_done, name='profile'),
     url('contact_us_done/', views.contact_us_done, name='contact_us_done'),
     url('', views.homePage, name='home'),

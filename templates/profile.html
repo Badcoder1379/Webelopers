@@ -8,6 +8,7 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
+<div class="ui raised very padded text container segment">
 <div style="margin: 30px;">
 <div class="field">
 <p>First Name: <span id="text_first_name" style="color:blue">
@@ -24,8 +25,9 @@
     {{ request.user.username }}
 </span></p>
 <div class="item">
-            <a class="ui button" id="setting" href="{% url 'edit_profile' %}">وبراایش پروفایل</a>
+            <a class="ui button" id="setting" href="{% url 'edit_profile' %}">وبرایش پروفایل</a>
         </div>
+</div>
 </div>
 </div>
 {% endblock  %}
