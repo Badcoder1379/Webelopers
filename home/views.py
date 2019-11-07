@@ -69,7 +69,7 @@ def edit_profile_done(request):
             request.user.first_name = first_name
         if last_name != "":
             request.user.last_name = last_name
-    return render(request, 'profile.html')
+    return render(request, 'profile2.html')
 
 
 def edit_profile(request):
@@ -77,7 +77,7 @@ def edit_profile(request):
 
 
 def load_panel(request):
-    return render(request, 'panel.html')
+    return render(request, 'profile.html')
 
 
 def contact_us(request):

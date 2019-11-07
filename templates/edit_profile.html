@@ -8,7 +8,36 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
-    <form class="ui form" id="setting_form" action="{% url 'profile' %}" method="post">{% csrf_token %}
+
+
+
+    <head>
+        <style>
+            .container {
+                margin: 5%;
+                margin-top: 2%;
+                margin-left: 30%;
+                margin-right: 30%;
+                background-color: whitesmoke;
+                padding: 3%;
+                border-radius: 3%;
+                border: solid #888888 3px;
+                background-color: white;
+            }
+            #h{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin-top : 3%;
+                font-weight: bold;
+                font-size: 30px;
+                color: #666666;
+            }
+        </style>
+    </head>
+
+    <strong id="h">Edit profile</strong>
+    <form class="ui form container" id="setting_form" action="{% url 'panel' %}" method="post">{% csrf_token %}
         <div class="field">
             <label>First Name</label>
             <input type="text" name="first_name" placeholder= {{ request.user.first_name }}>
