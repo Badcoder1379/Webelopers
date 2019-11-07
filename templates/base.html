@@ -54,20 +54,20 @@
 
 <div style="margin: 30px; margin-top: 500px; background-color: whitesmoke">
     contact us!
-    <form id="contact_us_form" class="ui form" action="{% url 'home' %}" method="post">{% csrf_token %}
+    <form id="contact_us_form" class="ui form" action="{% url 'contact_us_done' %}" method="post">{% csrf_token %}
         <div class="field">
             <label>Title</label>
-            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="title" placeholder="Title" required>
         </div>
 
         <div class="field">
             <label>Email</label>
-            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="email" placeholder="Email" required>
         </div>
 
         <div class="field">
             <label>Text</label>
-            <textarea name="text" placeholder="Text"></textarea>
+            <textarea name="text" placeholder="Text" required maxlength="250" minlength="10"></textarea>
         </div>
         <button class="ui button" type="submit">Submit</button>
     </form>
