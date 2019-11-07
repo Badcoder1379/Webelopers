@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 from home.forms import SignUpForm
 
@@ -7,7 +7,7 @@ from home.forms import SignUpForm
 
 
 def homePage(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'login': False})
 
 
 def register(request):
@@ -19,3 +19,7 @@ def register(request):
 
 def sign_in(request):
     return render(request, 'sign_in.html')
+
+
+def contact_us_done(request):
+    return render(request, 'contact_us_done.html')
