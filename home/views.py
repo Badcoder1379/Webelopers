@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
-from home.forms import UserCreationForm
+from home.forms import SignUpForm
+
 
 # Create your views here.
 
@@ -11,10 +12,9 @@ def homePage(request):
 
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         form.save()
     return render(request, 'register.html')
-
 
 
 def sign_in(request):
