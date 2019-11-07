@@ -1,6 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm
@@ -75,6 +74,10 @@ def edit_profile_done(request):
 
 def edit_profile(request):
     return render(request, 'edit_profile.html')
+
+
+def load_panel(request):
+    return render(request, 'panel.html')
 
 
 def contact_us(request):
