@@ -34,7 +34,8 @@ def sign_in(request):
         else:
             return render(request, 'sign_in.html',
                           {'valid': False, 'register_button': True, 'sign_in_button': True, 'exit_button': False})
-    return render(request, 'sign_in.html', {'register_button': True, 'sign_in_button': True, 'exit_button': False})
+    return render(request, 'sign_in.html',
+                  {'valid': True, 'register_button': True, 'sign_in_button': True, 'exit_button': False})
 
 
 def contact_us_done(request):
