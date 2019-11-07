@@ -4,6 +4,6 @@ from django.urls import path
 from home import views
 
 urlpatterns = [
-    url('register/', views.register),
-    url('', views.homePage)
+    url('register/', views.register, name="register"),
+    url('', views.homePage, name="home"),
 ]
