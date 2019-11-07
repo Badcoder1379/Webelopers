@@ -8,3 +8,5 @@ def homePage(request):
 
 def register(request):
     return render(request, 'register.html')
+
+
