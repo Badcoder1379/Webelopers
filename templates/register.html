@@ -38,6 +38,16 @@
             </div>
             <button class="ui button" type="submit"  >Submit</button>
         </form>
+        {%  if error == 'NotEqualPass' %}
+            <div id="errors">
+            نام کاربری شما در سیستم موجود است
+            </div>
+        {%  endif %}
+        {%  if error == 'NotEqualPass' %}
+            <div id="errors">
+            گذرواژه و تکرار گذرواژه یکسان نیستند
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}

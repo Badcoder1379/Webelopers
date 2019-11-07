@@ -22,7 +22,6 @@ def register(request):
         if len(users) != 0:
             Error = 'ExistedUser'
         form.save()
-
     return render(request, 'register.html', {'error': Error})
 
 
@@ -34,4 +33,4 @@ def sign_in(request):
         login(request, user)
         return render(request, 'logged_in.html')
     else:
-        return render(request, 'sign_in.html', {'invalid': False})
+        return render(request, 'sign_in.html', {'valid': False})

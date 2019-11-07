@@ -20,11 +20,11 @@
                 <label>Last Name</label>
                 <input type="text" name="password" placeholder="Last Name">
             </div>
-            <button class="ui button" type="submit">Submit</button>
+            <button class="ui button" type="submit" id="submit" name="submit">Submit</button>
         </form>
-        {% if invalid %}
+        {% if valid %}
             <div id=”error”>
-
+                رمز اشتباه!!
             </div>
         {% endif %}
     </div>
