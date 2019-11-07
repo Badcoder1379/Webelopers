@@ -17,21 +17,21 @@
 <body>
 
 <div class="ui menu" id="navbar">
-    {% if register_button %}
+    {% if not request.user.is_authenticated %}
         <div class="item">
             <a class="ui primary button" id="register" href="{% url 'register' %}">ثبت نام</a>
         </div>
     {% endif %}
 
-    {% if sign_in_button %}
+    {% if not request.user.is_authenticated %}
         <div class="item">
             <a class="ui button" id="login" href="{% url 'sign_in' %}">ورود</a>
         </div>
     {% endif %}
 
-    {% if exit_button %}
+    {% if request.user.is_authenticated %}
         <div class="item">
-            <a class="ui button" id="logout" href="{% url 'home' %}">خروج</a>
+            <a class="ui button" id="logout" href="{% url 'logout' %}">خروج</a>
         </div>
     {% endif %}
 
