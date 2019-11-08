@@ -69,17 +69,18 @@
             <input name="search_query" placeholder="Depatment Name">
             <button name="submit">Search!</button>
             {% if search %}
+                <div id="search_result">
                 {% for cours in courses %}
 
                     <div class="{{ cours.course_number }}_{{ cours.group_number }}">
                         <p>{{ cours.name }}</p>
                         <p>{{ cours.teacher }}</p>
                     </div>
-
                     <div class="ui horizontal divider">
                         Or
                     </div>
                 {% endfor %}
+                </div>
             {% endif %}
         </form>
     </div>
