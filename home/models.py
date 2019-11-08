@@ -16,8 +16,8 @@ class IntegerRangeField(models.IntegerField):
 class Course(models.Model):
     name = models.CharField(max_length=100)
     department = models.CharField(max_length=100)
-    course_number = IntegerRangeField(max_value=100000)
-    group_number = IntegerRangeField(max_value=10)
+    course_number = IntegerRangeField()
+    group_number = IntegerRangeField()
     teacher = models.CharField(max_length=100)
     start_time = models.TimeField()
     end_time = models.TimeField()
