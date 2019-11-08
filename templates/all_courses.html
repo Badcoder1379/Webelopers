@@ -7,36 +7,87 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
-    <head>
-        <style>
-            .margin {
-                margin: 5%;
-                margin-top: 2%;
-                margin-left: 30%;
-                margin-right: 30%;
-            }
 
-            #make_course {
-                background-color: whitesmoke;
-                padding: 3%;
-                border-radius: 3%;
-                border: solid #888888 3px;
-                background-color: white;
-            }
 
-            #h {
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                margin-top: 3%;
-                font-weight: bold;
-                font-size: 30px;
-                color: #666666;
-            }
-        </style>
-    </head>
+
+
+
+
+
+    <style>
+        .container {
+            margin: 5%;
+            margin-top: 2%;
+            margin-left: 30%;
+            margin-right: 30%;
+            background-color: whitesmoke;
+            padding: 3%;
+            border-radius: 3%;
+            border: solid #888888 3px;
+            background-color: white;
+            horiz-align: center;
+        }
+
+        #h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-top: 3%;
+            font-weight: bold;
+            font-size: 30px;
+            color: #666666;
+        }
+
+    </style>
 
     <strong id="h">All Courses</strong>
+    <div class="container">
+
+        <div id="all_courses" class="ui center aligned basic segment">
+            {% for cours in courses %}
+
+                <table class="ui red table">
+                    <tbody>
+
+
+                    <tr>
+                        <td>
+                            <pre>Courses name : </pre>
+                        </td>
+                        <td><span id="text_first_name">{{ cours.name }}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre>Department : </pre>
+                        </td>
+                        <td><span id="text_last_name">{{ cours.departmen }}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre>Course days : </pre>
+                        </td>
+                        <td><span id="text_user_name">{{ cours.first_day }}{{ cours.second_day }}</span></td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+                <div class="ui horizontal divider">
+                    Or
+                </div>
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+    </div>
+
+
+
+
+
     <div class="all_courses">
         <div class="ui center aligned basic segment">
 

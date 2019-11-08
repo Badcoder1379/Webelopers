@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm, CourseForm
+from home.models import Course
 
 
 def homePage(request):
@@ -103,5 +104,4 @@ def profile(request):
 
 
 def all_courses(request):
-    return render(request, 'all_courses.html')
-
+    return render(request, 'all_courses.html', {'courses': Course.objects.all()})
