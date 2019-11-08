@@ -46,14 +46,15 @@
         <div class="container">
 
             <div id="all_courses" class="ui center aligned basic segment">
-                {% for cours in courses %}
+                {% for course in courses %}
 
-                    <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                        <h4>{{ cours.name }}</h4>
-                        <div>{{ cours.department }}</div>
-                        <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                        <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                        <div>{{ cours.teacher }}</div>
+                    <div class="{{ course.course_number }}_{{ course.group_number }}">
+                        <h4>{{ course.name }}</h4>
+                        <div>{{ course.department }}</div>
+                        <div>{{ course.first_day }}{{ course.second_day }}</div>
+                        <div>{{ course.start_time }} {{ course.end_time }}</div>
+                        <div>{{ course.teacher }}</div>
+                        <br><br>
                         <a class="add">
                             <button class="ui primary button">Add</button>
                         </a></div>
@@ -79,6 +80,9 @@
                     <div class="{{ course.course_number }}_{{ course.group_number }}">
                         <h4>{{ course.name }}</h4>
                         <div>{{ course.teacher }}</div>
+                        <div>{{ course.department }}</div>
+                        <div>{{ course.first_day }}{{ course.second_day }}</div>
+                        <div>{{ course.start_time }} {{ course.end_time }}</div>
                         <br><br>
                         <a class="add">
                             <button class="ui primary button">Add</button>
