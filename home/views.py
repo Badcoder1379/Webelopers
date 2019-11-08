@@ -65,15 +65,15 @@ def edit_profile_done(request):
             request.user.first_name = first_name
         if last_name != "":
             request.user.last_name = last_name
-    return render(request, 'profile2.html')
+    return profile(request)
 
 
 def edit_profile(request):
     return render(request, 'edit_profile.html')
 
 
-def load_panel(request):
-    return render(request, 'profile.html')
+def panel(request):
+    return render(request, 'panel.html')
 
 
 def contact_us(request):
@@ -82,3 +82,6 @@ def contact_us(request):
 
 def add_course(request):
     return render(request, 'add_course.html')
+
+def profile(request):
+    return render(request, 'profile.html')

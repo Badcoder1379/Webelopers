@@ -27,9 +27,11 @@ urlpatterns = [
     url('edit_profile/', views.edit_profile, name='edit_profile'),
     url('add_course/', views.add_course, name='add_course'),
     url('logout/', views.logout_view, name='logout'),
-    url('panel/', views.load_panel, name='panel'),
-    url('profile/', views.edit_profile_done, name='profile'),
+    url('panel/', views.panel, name='panel'),
+    url('profile/', views.profile, name='profile'),
     url('contact_us_done/', views.contact_us_done, name='contact_us_done'),
     url('contact_us/', views.contact_us, name='contact_us'),
+    url('edit_profile_done/', views.edit_profile_done, name='edit_profile_done'),
     url('', views.homePage, name='home'),
+
 ]

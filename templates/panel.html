@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Account Panel
+{% endblock %}
+
+
+{% block navbar %}
+{% endblock %}
+{% block content %}
+
+    <style>
+        .container {
+            margin: 5%;
+            margin-top: 2%;
+            margin-left: 30%;
+            margin-right: 30%;
+            background-color: whitesmoke;
+            padding: 3%;
+            border-radius: 3%;
+            border: solid #888888 3px;
+            background-color: white;
+            horiz-align: center;
+        }
+
+        #h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-top: 3%;
+            font-weight: bold;
+            font-size: 30px;
+            color: #666666;
+        }
+
+    </style>
+
+    <strong id="h">Panel</strong>
+    <div class="container">
+
+        <div class="ui center aligned basic segment">
+            <a id="make_new_course" class="ui teal labeled icon button" style="font-size: 20px;"
+                href="{% url 'add_course' %}">ساخت
+                درس جدید
+                <i class="add icon"></i>
+            </a>
+            <div class="ui horizontal divider">
+                Or
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+
+{% endblock %}
