@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm, CourseForm
-from home.models import Course, Student
+from home.models import Course
 
 
 def homePage(request):
@@ -113,16 +113,19 @@ def profile(request):
 
 
 def all_courses(request):
-    search_field = False
     if request.method == 'POST':
-        search_field = True
-        department = request.POST['search_query']
-        courses = Course.objects.filter(department=department)
+        query_text = request.POST['search_query']
+        if request.POST.get('teacher'):
+            courses = Course.objects.filter(teacher=query_text)
+        elif request.POST.get('course'):
+            courses = Course.objects.filter(name=query_text)
+        else:
+            courses = Course.objects.filter(department=query_text)
+        search_courses = True
+        all_courses = False
     else:
         courses = Course.objects.all()
-
-    return render(request, 'all_courses.html', {'courses': courses, 'search': search_field})
-
-
-def search_courses(request):
-    return all_courses(request)
+        search_courses = False
+        all_courses = True
+    return render(request, 'all_courses.html',
+                  {'courses': courses, 'all_courses': all_courses, 'search_courses': search_courses})
