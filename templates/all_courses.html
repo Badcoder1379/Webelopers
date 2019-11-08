@@ -138,33 +138,33 @@
         </form>
     </div>
 
-
-    <strong class="h">My Courses</strong>
-
-    <div class="container">
-
-        <div id="my_courses" class="ui center aligned basic segment">
-            {% for course in courses %}
-
-                <div class="{{ course.course_number }}_{{ course.group_number }}">
-                    <h4>{{ course.name }}</h4>
-                    <div>{{ course.department }}</div>
-                    <div>{{ course.first_day }}{{ course.second_day }}</div>
-                    <div>{{ course.start_time }} {{ course.end_time }}</div>
-                    <div>{{ course.teacher }}</div>
-                    <a class="remove">
-                        <button class="ui primary button">Remove</button>
-
-                    </a>
-                </div>
-
-                <div class="ui horizontal divider">
-                    Or
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
+{##}
+{#    <strong class="h">My Courses</strong>#}
+{##}
+{#    <div class="container">#}
+{##}
+{#        <div id="my_courses" class="ui center aligned basic segment">#}
+{#            {% for course in courses %}#}
+{##}
+{#                <div class="{{ course.course_number }}_{{ course.group_number }}">#}
+{#                    <h4>{{ course.name }}</h4>#}
+{#                    <div>{{ course.department }}</div>#}
+{#                    <div>{{ course.first_day }}{{ course.second_day }}</div>#}
+{#                    <div>{{ course.start_time }} {{ course.end_time }}</div>#}
+{#                    <div>{{ course.teacher }}</div>#}
+{#                    <a class="remove">#}
+{#                        <button class="ui primary button">Remove</button>#}
+{##}
+{#                    </a>#}
+{#                </div>#}
+{##}
+{#                <div class="ui horizontal divider">#}
+{#                    Or#}
+{#                </div>#}
+{#            {% endfor %}#}
+{##}
+{#        </div>#}
+{#    </div>#}
 
 
 
