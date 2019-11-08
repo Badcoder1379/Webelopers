@@ -46,12 +46,12 @@ def sign_in(request):
 
 
 def contact_us_done(request):
-    # send_mail(
-    #     request.POST['title'],
-    #     request.POST['email'] + "\n" + request.POST['text'],
-    #     'joorabnakhi@gmail.com',
-    #     ['heidary13794@gmail.com']
-    # )
+    send_mail(
+        request.POST['title'],
+        request.POST['email'] + "\n" + request.POST['text'],
+        'joorabnakhi@gmail.com',
+        ['heidary13794@gmail.com']
+    )
 
     return render(request, 'contact_us_done.html',
                   {'register_button': True, 'sign_in_button': True, 'exit_button': False})
