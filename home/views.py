@@ -46,12 +46,12 @@ def sign_in(request):
 
 
 def contact_us_done(request):
-    # send_mail(
-    #     request.POST['title'],
-    #     request.POST['email'] + "\n" + request.POST['text'],
-    #     'joorabnakhi@gmail.com',
-    #     ['heidary13794@gmail.com']
-    # )
+    send_mail(
+        request.POST['title'],
+        request.POST['email'] + "\n" + request.POST['text'],
+        'joorabnakhi@gmail.com',
+        ['heidary13794@gmail.com']
+    )
 
     return render(request, 'contact_us_done.html',
                   {'register_button': True, 'sign_in_button': True, 'exit_button': False})
@@ -75,6 +75,7 @@ def edit_profile_done(request):
             request.user.first_name = first_name
         if last_name != "":
             request.user.last_name = last_name
+        request.user.save()
     return profile(request)
 
 
@@ -92,3 +93,7 @@ def contact_us(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+
+def all_courses(request):
+    return render(request, 'all_courses.html')
