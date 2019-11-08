@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Register
+    Sign In
 {% endblock %}
 
 
@@ -34,7 +34,7 @@
     </style>
 
     <div>
-    <strong id="h">Sign in form</strong>
+        <strong id="h">Sign in form</strong>
         <form class="ui form sign_in_form" id="login_form" action="{% url 'sign_in' %}" method="post">{% csrf_token %}
             <div class="column">
                 <div class="ui form">
@@ -55,17 +55,18 @@
                     <button class="ui button" type="submit" id="submit" name="submit">Login</button>
 
                 </div>
+                {% if not valid %}
+                    <div id="error" class="ui red message"
+                         style="margin-top: 30px; text-align: center; font-size: 20px;" dir="rtl">
+                        رمز اشتباه!!
+                    </div>
+                {% else %}
+                    <div>
+
+                    </div>
+                {% endif %}
             </div>
         </form>
-        {% if not valid %}
-            <div id=”error”>
-                رمز اشتباه!!
-            </div>
-        {% else %}
-            <div>
-
-            </div>
-        {% endif %}
     </div>
 
 {% endblock %}

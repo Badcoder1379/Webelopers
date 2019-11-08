@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm
@@ -77,3 +78,7 @@ def load_panel(request):
 
 def contact_us(request):
     return render(request, 'contact_us.html')
+
+
+def add_course(request):
+    return render(request, 'add_course.html')

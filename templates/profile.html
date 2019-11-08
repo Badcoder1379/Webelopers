@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Register
+    Account Panel
 {% endblock %}
 
 
@@ -68,17 +68,18 @@
                 Or
             </div>
 
-            <button type="submit" id="make_new_course" class="ui teal labeled icon button" style="font-size: 20px;">ساخت
+            <a id="courses" class="ui teal labeled icon button" style="font-size: 20px;"
+                href="{% url 'add_course' %}">ساخت
                 درس جدید
                 <i class="add icon"></i>
-            </button>
+            </a>
             <div class="ui horizontal divider">
                 Or
             </div>
             <a id="setting" class="ui teal labeled icon button" style="font-size: 20px;"
                href="{% url 'edit_profile' %}">
                 ویرایش نمایه کاربر
-                <i class="add icon"></i>
+                <i class="edit icon"></i>
             </a>
         </div>
 
