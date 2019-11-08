@@ -1,3 +1,5 @@
+from collections import Set
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import user_passes_test
 from django.core.mail import send_mail
@@ -115,18 +117,29 @@ def profile(request):
 
 def all_courses(request):
     if request.method == 'POST':
+        list = []
         query_text = request.POST['search_query']
-        if request.POST.get('teacher'):
-            courses = Course.objects.filter(teacher=query_text)
-        elif request.POST.get('course'):
-            courses = Course.objects.filter(name=query_text)
-        else:
-            courses = Course.objects.filter(department=query_text)
-        search_courses = True
-        all_course = False
+        for course in Course.objects.all():
+
+            flag = True
+            if request.POST.get('teacher'):
+                flag = False
+                if course.teacher == query_text:
+                    list.append(course)
+                    continue
+            if request.POST.get('course'):
+                flag = False
+                if course.name == query_text:
+                    list.append(course)
+                    continue
+            if request.POST.get('department') or flag:
+                if course.department == query_text:
+                    list.append(course)
+        courses = list
+        search_state = True
     else:
         courses = Course.objects.all()
-        search_courses = False
-        all_course = True
+        search_state = False
+
     return render(request, 'all_courses.html',
-                  {'courses': courses, 'all_courses': all_course, 'search_courses': search_courses})
+                  {'courses': courses, 'all_courses': all_courses, 'search_state': search_state})

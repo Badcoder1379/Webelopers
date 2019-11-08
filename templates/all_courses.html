@@ -40,20 +40,21 @@
 
     </style>
 
-    {% if all_courses %}
+    {% if not search_state %}
         <strong class="h">All Courses</strong>
 
         <div class="container">
 
             <div id="all_courses" class="ui center aligned basic segment">
-                {% for cours in courses %}
+                {% for course in courses %}
 
-                    <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                        <h4>{{ cours.name }}</h4>
-                        <div>{{ cours.department }}</div>
-                        <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                        <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                        <div>{{ cours.teacher }}</div>
+                    <div class="{{ course.course_number }}_{{ course.group_number }}">
+                        <h4>{{ course.name }}</h4>
+                        <div>{{ course.department }}</div>
+                        <div>{{ course.first_day }}{{ course.second_day }}</div>
+                        <div>{{ course.start_time }} {{ course.end_time }}</div>
+                        <div>{{ course.teacher }}</div>
+                        <br><br>
                         <a class="add">
                             <button class="ui primary button">Add</button>
                         </a></div>
@@ -68,20 +69,21 @@
     {% endif %}
 
 
-    {% if search_courses %}
+    {% if search_state %}
         <strong class="h">Search Courses</strong>
 
         <div class="container">
 
-            <div id="search_courses" class="ui center aligned basic segment">
-                {% for cours in courses %}
+            <div id="search_result" class="ui center aligned basic segment">
+                {% for course in courses %}
 
-                    <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                        <h4>{{ cours.name }}</h4>
-                        <div>{{ cours.department }}</div>
-                        <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                        <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                        <div>{{ cours.teacher }}</div>
+                    <div class="{{ course.course_number }}_{{ course.group_number }}">
+                        <h4>{{ course.name }}</h4>
+                        <div>{{ course.teacher }}</div>
+                        <div>{{ course.department }}</div>
+                        <div>{{ course.first_day }}{{ course.second_day }}</div>
+                        <div>{{ course.start_time }} {{ course.end_time }}</div>
+                        <br><br>
                         <a class="add">
                             <button class="ui primary button">Add</button>
                         </a>
@@ -102,7 +104,7 @@
 
         <form id="search_form" action="{% url 'all_courses' %}" method="post">{% csrf_token %}
             <input name="search_query">
-            <button name="submit">Search!</button>
+            <button name="submit">Search</button>
 
             <input id="dep" type="checkbox" name="department" checked>
             <label for="dep">Department</label>
@@ -138,33 +140,33 @@
         </form>
     </div>
 
-
-    <strong class="h">My Courses</strong>
-
-    <div class="container">
-
-        <div id="my_courses" class="ui center aligned basic segment">
-            {% for cours in courses %}
-
-                <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                    <h4>{{ cours.name }}</h4>
-                    <div>{{ cours.department }}</div>
-                    <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                    <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                    <div>{{ cours.teacher }}</div>
-                    <a class="remove">
-                        <button class="ui primary button">Remove</button>
-
-                    </a>
-                </div>
-
-                <div class="ui horizontal divider">
-                    Or
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
+    {##}
+    {#    <strong class="h">My Courses</strong>#}
+    {##}
+    {#    <div class="container">#}
+    {##}
+    {#        <div id="my_courses" class="ui center aligned basic segment">#}
+    {#            {% for course in courses %}#}
+    {##}
+    {#                <div class="{{ course.course_number }}_{{ course.group_number }}">#}
+    {#                    <h4>{{ course.name }}</h4>#}
+    {#                    <div>{{ course.department }}</div>#}
+    {#                    <div>{{ course.first_day }}{{ course.second_day }}</div>#}
+    {#                    <div>{{ course.start_time }} {{ course.end_time }}</div>#}
+    {#                    <div>{{ course.teacher }}</div>#}
+    {#                    <a class="remove">#}
+    {#                        <button class="ui primary button">Remove</button>#}
+    {##}
+    {#                    </a>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="ui horizontal divider">#}
+    {#                    Or#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {##}
+    {#        </div>#}
+    {#    </div>#}
 
 
 
