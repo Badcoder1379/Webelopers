@@ -26,6 +26,8 @@ class Course(models.Model):
     second_day = IntegerRangeField(min_value=0, max_value=4)
 
 
+
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     profile_photo = models.FileField(null=True, upload_to="")
+    courses = models.ManyToManyField(Course,related_name='students')

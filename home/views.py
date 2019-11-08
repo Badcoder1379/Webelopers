@@ -25,6 +25,14 @@ def add_course(request):
     return render(request, 'add_course.html')
 
 
+def register_course(request, course_number, group_number):
+    course_number = int(course_number)
+    group_number = int(group_number)
+    course = Course.objects.filter(course_number=course_number, group_number=group_number).first()
+    request.user.student.courses.add(course)
+    return redirect("/all_courses")
+
+
 def register(request):
     form = SignUpForm()
     if request.method == "POST":
@@ -112,10 +120,13 @@ def contact_us(request):
 
 def profile(request):
     student = Student.objects.get(user=request.user)
-    return render(request, 'profile.html', {'img':student.profile_photo})
+    return render(request, 'profile.html', {'img': student.profile_photo})
 
 
 def all_courses(request):
+    if not Student.objects.filter(user=request.user):
+        student = Student(user=request.user).save()
+        print("student created")
     if request.method == 'POST':
         list = []
         query_text = request.POST['search_query']
