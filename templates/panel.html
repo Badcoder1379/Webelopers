@@ -39,16 +39,18 @@
     <div class="container">
 
         <div class="ui center aligned basic segment">
-            <a id="make_new_course" class="ui teal labeled icon button" style="font-size: 20px;"
-                href="{% url 'add_course_page' %}">ساخت
-                درس جدید
-                <i class="add icon"></i>
-            </a>
+            {% if request.user.is_superuser %}
+                <a id="make_new_course" class="ui teal labeled icon button" style="font-size: 20px;"
+                   href="{% url 'add_course_page' %}">ساخت
+                    درس جدید
+                    <i class="add icon"></i>
+                </a>
             <div class="ui horizontal divider">
                 Or
             </div>
+            {% endif %}
             <a id="courses" class="ui teal labeled icon button" style="font-size: 20px;"
-                href="{% url 'all_courses' %}">
+               href="{% url 'all_courses' %}">
                 مشاهده همه دروس
                 <i class="book icon"></i>
             </a>
