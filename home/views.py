@@ -61,7 +61,7 @@ def contact_us_done(request):
         )
         return render(request, 'contact_us_done.html')
     else:
-        return contact_us(request)
+        return redirect("contact_us")
 
 
 def login_view(request):
