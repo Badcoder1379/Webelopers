@@ -51,24 +51,39 @@
 
 
                     <tr>
-                        <td>
-                            <pre>Courses name : </pre>
-                        </td>
-                        <td><span id="text_first_name">{{ cours.name }}</span></td>
+                        <td><h4>{{ cours.name }}</h4></td>
                     </tr>
                     <tr>
                         <td>
                             <pre>Department : </pre>
                         </td>
-                        <td><span id="text_last_name">{{ cours.departmen }}</span></td>
+                        <td><div>{{ cours.department }}</div></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <pre>Course days : </pre>
+                        </td>
+                        <td>
+                            <div>{{ cours.first_day }}
+                                <strnog>,</strnog>
+                                {{ cours.second_day }}</div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <pre>Course days : </pre>
                         </td>
-                        <td><span id="text_user_name">{{ cours.first_day }}{{ cours.second_day }}</span></td>
+                        <td><div>{{ cours.start_time }}
+                            <strnog>,</strnog>
+                            {{ cours.end_time }}</div></td>
                     </tr>
-
+                    <tr>
+                        <td>
+                            <pre>Teacher : </pre>
+                        </td>
+                        <td><div>{{ cours.teacher }}</div></td>
+                    </tr>
 
                     </tbody>
                 </table>
