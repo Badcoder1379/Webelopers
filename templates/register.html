@@ -10,8 +10,38 @@
 
 {% block content %}
 
-    <div style="margin: 30px;">
-        <form id="register_form" class="ui form" action="{% url 'register' %}" method="post">{% csrf_token %}
+    <head>
+        <style>
+            .margin {
+                margin: 5%;
+                margin-top: 2%;
+                margin-left: 30%;
+                margin-right: 30%;
+            }
+
+            #register_form {
+                background-color: whitesmoke;
+                padding: 3%;
+                border-radius: 3%;
+                border: solid #888888 3px;
+                background-color: white;
+            }
+
+            #h {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin-top: 3%;
+                font-weight: bold;
+                font-size: 30px;
+                color: #666666;
+            }
+        </style>
+    </head>
+
+    <div>
+        <strong id="h">Register form</strong>
+        <form id="register_form" class="ui form margin" action="{% url 'register' %}" method="post">{% csrf_token %}
             <div class="field">
                 <label>First Name</label>
                 <input type="text" name="first_name" placeholder="First Name">
@@ -36,11 +66,14 @@
                 <label>Confirm Password</label>
                 <input type="password" name="password2" placeholder="Confirm Password">
             </div>
-            <button class="ui button" type="submit" name="submit" >Submit</button>
+            <button class="ui button" type="submit" name="submit">Submit</button>
         </form>
-        <div id="errors">
+        <div id="errors"></div>
+        <div id="errors" class="margin">
             {% for field in form %}
-                {{ field.errors }}
+                <div class="ui red message" style="margin-top: 30px; text-align: center; font-size: 20px;" dir="rtl">
+                        <h5 class="ui header"> {{ field.errors }}</h5>
+                </div>
             {% endfor %}
         </div>
     </div>

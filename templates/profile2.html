@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+
+{% block navbar %}
+{% endblock %}
+{% block content %}
+
+    <style>
+        .sign_in_form {
+            margin: 5%;
+            margin-top: 2%;
+            margin-left: 30%;
+            margin-right: 30%;
+            background-color: whitesmoke;
+            padding: 3%;
+            border-radius: 3%;
+            border: solid #888888 3px;
+            background-color: white;
+        }
+
+        #h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-top: 3%;
+            font-weight: bold;
+            font-size: 30px;
+            color: #666666;
+        }
+    </style>
+
+    <div class="ui raised very padded text container segment">
+        <div style="margin: 30px;">
+            <div class="field">
+                <p>First Name: <span id="text_first_name" style="color:blue">
+    {{ request.user.first_name }}
+</span></p>
+            </div>
+            <div class="field">
+                <p>Last Name: <span id="text_last_name" style="color:blue">
+    {{ request.user.last_name }}
+</span></p>
+            </div>
+            <div class="field">
+                <p>User Name: <span id="text_user_name" style="color:blue">
+    {{ request.user.username }}
+</span></p>
+                <div class="item">
+                    <a class="ui button" id="setting" href="{% url 'edit_profile' %}">وبرایش پروفایل</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -29,5 +29,6 @@ urlpatterns = [
     url('panel/', views.load_panel, name='panel'),
     url('profile/', views.edit_profile_done, name='profile'),
     url('contact_us_done/', views.contact_us_done, name='contact_us_done'),
+    url('contact_us', views.contact_us, name='contact_us'),
     url('', views.homePage, name='home'),
 ]

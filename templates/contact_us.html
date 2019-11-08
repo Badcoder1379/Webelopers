@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+    contact us!
+{% endblock %}
+
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+
+    <head>
+        <style>
+            #contact_us_form {
+                margin: 5%;
+                margin-top: 2%;
+                margin-left: 30%;
+                margin-right: 30%;
+                background-color: whitesmoke;
+                padding: 3%;
+                border-radius: 3%;
+                border: solid #888888 3px;
+                background-color: white;
+            }
+            #h{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin-top : 3%;
+                font-weight: bold;
+                font-size: 30px;
+                color: #666666;
+            }
+        </style>
+    </head>
+
+    <div>
+
+        <strong id="h">
+            Contact us!
+        </strong>
+        <form id="contact_us_form" class="ui form" action="{% url 'contact_us_done' %}" method="post">{% csrf_token %}
+            <div class="field">
+                <h3>عنوان</h3>
+                <input type="text" name="title" placeholder="Title" required>
+            </div>
+
+            <div class="field">
+                <h3>ایمیل</h3>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="field">
+                <h3>متن</h3>
+                <textarea name="text" placeholder="Text" required maxlength="250" minlength="10"></textarea>
+            </div>
+            <button class="ui secondary button" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
+</ul>
