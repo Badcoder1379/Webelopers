@@ -23,3 +23,5 @@ class Course(models.Model):
     end_time = models.TimeField()
     first_day = IntegerRangeField(min_value=0, max_value=4)
     second_day = IntegerRangeField(min_value=0, max_value=4)
+
+

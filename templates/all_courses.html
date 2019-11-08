@@ -28,7 +28,7 @@
             horiz-align: center;
         }
 
-        #h {
+        .h {
             display: flex;
             justify-content: center;
             align-content: center;
@@ -40,21 +40,23 @@
 
     </style>
 
-    <strong id="h">All Courses</strong>
-    {% if not search %}
+    {% if all_courses %}
+        <strong class="h">All Courses</strong>
+
         <div class="container">
 
             <div id="all_courses" class="ui center aligned basic segment">
                 {% for cours in courses %}
 
-                <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                    <h4>{{ cours.name }}</h4>
-                    <div>{{ cours.department }}</div>
-                    <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                    <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                    <div>{{ cours.teacher }}</div>
-                <a class="add">Add</a>
-                </div>
+                    <div class="{{ cours.course_number }}_{{ cours.group_number }}">
+                        <h4>{{ cours.name }}</h4>
+                        <div>{{ cours.department }}</div>
+                        <div>{{ cours.first_day }}{{ cours.second_day }}</div>
+                        <div>{{ cours.start_time }} {{ cours.end_time }}</div>
+                        <div>{{ cours.teacher }}</div>
+                        <a class="add">
+                            <button class="ui primary button">Add</button>
+                        </a></div>
 
                     <div class="ui horizontal divider">
                         Or
@@ -64,25 +66,104 @@
             </div>
         </div>
     {% endif %}
-    <div class="container">
-        <form id="search_form" action="{% url 'all_courses' %}" method="post">{% csrf_token %}
-            <input name="search_query" placeholder="Depatment Name">
-            <button name="submit">Search!</button>
-            {% if search %}
-                <div id="search_result">
+
+
+    {% if search_courses %}
+        <strong class="h">Search Courses</strong>
+
+        <div class="container">
+
+            <div id="search_courses" class="ui center aligned basic segment">
                 {% for cours in courses %}
 
                     <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                        <p>{{ cours.name }}</p>
-                        <p>{{ cours.teacher }}</p>
+                        <h4>{{ cours.name }}</h4>
+                        <div>{{ cours.department }}</div>
+                        <div>{{ cours.first_day }}{{ cours.second_day }}</div>
+                        <div>{{ cours.start_time }} {{ cours.end_time }}</div>
+                        <div>{{ cours.teacher }}</div>
+                        <a class="add">
+                            <button class="ui primary button">Add</button>
+                        </a>
                     </div>
+
                     <div class="ui horizontal divider">
                         Or
                     </div>
                 {% endfor %}
+
+            </div>
+        </div>
+    {% endif %}
+
+
+
+    <div class="container">
+
+        <form id="search_form" action="{% url 'all_courses' %}" method="post">{% csrf_token %}
+            <input name="search_query">
+            <button name="submit">Search!</button>
+
+            <input id="dep" type="checkbox" name="department" checked>
+            <label for="dep">Department</label>
+
+            <input id="tea" type="checkbox" name="teacher">
+            <label for="tea">Teacher</label>
+
+            <input id="cou" type="checkbox" name="course">
+            <label for="cou">Course</label>
+
+            <br><br>
+
+            <div class="grouped fields">
+                <h3>Search fields</h3>
+                <div class="field">
+                    <div class="ui checkbox">
+
+                    </div>
                 </div>
-            {% endif %}
+                <div class="field">
+                    <div class="ui checkbox">
+
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+
+                    </div>
+                </div>
+            </div>
+
+
         </form>
+    </div>
+
+
+    <strong class="h">My Courses</strong>
+
+    <div class="container">
+
+        <div id="my_courses" class="ui center aligned basic segment">
+            {% for cours in courses %}
+
+                <div class="{{ cours.course_number }}_{{ cours.group_number }}">
+                    <h4>{{ cours.name }}</h4>
+                    <div>{{ cours.department }}</div>
+                    <div>{{ cours.first_day }}{{ cours.second_day }}</div>
+                    <div>{{ cours.start_time }} {{ cours.end_time }}</div>
+                    <div>{{ cours.teacher }}</div>
+                    <a class="remove">
+                        <button class="ui primary button">Remove</button>
+
+                    </a>
+                </div>
+
+                <div class="ui horizontal divider">
+                    Or
+                </div>
+            {% endfor %}
+
+        </div>
     </div>
 
 
