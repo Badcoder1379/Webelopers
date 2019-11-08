@@ -41,10 +41,11 @@
     </style>
 
     <strong id="h">All Courses</strong>
-    <div class="container">
+    {% if not search %}
+        <div class="container">
 
-        <div id="all_courses" class="ui center aligned basic segment">
-            {% for cours in courses %}
+            <div id="all_courses" class="ui center aligned basic segment">
+                {% for cours in courses %}
 
                 <div class="{{ cours.course_number }}_{{ cours.group_number }}">
                     <h4>{{ cours.name }}</h4>
@@ -55,15 +56,32 @@
                 <a class="add">Add</a>
                 </div>
 
-                <div class="ui horizontal divider">
-                    Or
-                </div>
-            {% endfor %}
+                    <div class="ui horizontal divider">
+                        Or
+                    </div>
+                {% endfor %}
 
+            </div>
         </div>
+    {% endif %}
+    <div class="container">
+        <form id="search_form" action="{% url 'all_courses' %}" method="post">{% csrf_token %}
+            <input name="search_query" placeholder="Depatment Name">
+            <button name="submit">Search!</button>
+            {% if search %}
+                {% for cours in courses %}
 
+                    <div class="{{ cours.course_number }}_{{ cours.group_number }}">
+                        <p>{{ cours.name }}</p>
+                        <p>{{ cours.teacher }}</p>
+                    </div>
 
-    </div>
+                    <div class="ui horizontal divider">
+                        Or
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </form>
     </div>
 
 
