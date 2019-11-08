@@ -40,7 +40,7 @@
 
     </style>
 
-    {% if all_courses %}
+    {% if not search_state %}
         <strong class="h">All Courses</strong>
 
         <div class="container">
@@ -68,20 +68,20 @@
     {% endif %}
 
 
-    {% if search_courses %}
+    {% if search_state %}
         <strong class="h">Search Courses</strong>
 
         <div class="container">
 
             <div id="search_result" class="ui center aligned basic segment">
-                {% for cours in courses %}
+                {% for course in courses %}
 
-                    <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                        <h4>{{ cours.name }}</h4>
-                        <div>{{ cours.department }}</div>
-                        <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                        <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                        <div>{{ cours.teacher }}</div>
+                    <div class="{{ course.course_number }}_{{ course.group_number }}">
+                        <h4>{{ course.name }}</h4>
+                        <div>{{ course.department }}</div>
+                        <div>{{ course.first_day }}{{ course.second_day }}</div>
+                        <div>{{ course.start_time }} {{ course.end_time }}</div>
+                        <div>{{ course.teacher }}</div>
                         <a class="add">
                             <button class="ui primary button">Add</button>
                         </a>
@@ -144,14 +144,14 @@
     <div class="container">
 
         <div id="my_courses" class="ui center aligned basic segment">
-            {% for cours in courses %}
+            {% for course in courses %}
 
-                <div class="{{ cours.course_number }}_{{ cours.group_number }}">
-                    <h4>{{ cours.name }}</h4>
-                    <div>{{ cours.department }}</div>
-                    <div>{{ cours.first_day }}{{ cours.second_day }}</div>
-                    <div>{{ cours.start_time }} {{ cours.end_time }}</div>
-                    <div>{{ cours.teacher }}</div>
+                <div class="{{ course.course_number }}_{{ course.group_number }}">
+                    <h4>{{ course.name }}</h4>
+                    <div>{{ course.department }}</div>
+                    <div>{{ course.first_day }}{{ course.second_day }}</div>
+                    <div>{{ course.start_time }} {{ course.end_time }}</div>
+                    <div>{{ course.teacher }}</div>
                     <a class="remove">
                         <button class="ui primary button">Remove</button>
 

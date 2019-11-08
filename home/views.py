@@ -113,11 +113,10 @@ def all_courses(request):
             courses = Course.objects.filter(name=query_text)
         else:
             courses = Course.objects.filter(department=query_text)
-        search_courses = True
-        all_courses = False
+        search_state = True
     else:
         courses = Course.objects.all()
-        search_courses = False
-        all_courses = True
+        search_state = False
+
     return render(request, 'all_courses.html',
-                  {'courses': courses, 'all_courses': all_courses, 'search_courses': search_courses})
+                  {'courses': courses, 'all_courses': all_courses, 'search_state': search_state})
