@@ -37,7 +37,7 @@
     </head>
 
     <strong id="h">Edit profile</strong>
-    <form class="ui form container" id="setting_form" action="{% url 'edit_profile_done' %}" method="post">{% csrf_token %}
+    <form class="ui form container" id="setting_form" action="{% url 'edit_profile_done' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
         <div class="field">
             <label>First Name</label>
             <input type="text" name="first_name" placeholder= {{ request.user.first_name }}>

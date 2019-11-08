@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.forms import ModelForm
 
@@ -26,5 +27,5 @@ class Course(models.Model):
 
 
 class Student(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_photo = models.FileField(null=True, upload_to="media/profile/")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    profile_photo = models.FileField(null=True, upload_to="")

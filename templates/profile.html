@@ -40,7 +40,8 @@
 
         <div class="ui center aligned basic segment">
             <div class="ui card">
-                <img src={{ request.user.profile_photo }}>
+                {% load static %}
+                <img id="profile_image" src="/media/{{ img }}">
             </div>
 
             <div class="ui horizontal divider">

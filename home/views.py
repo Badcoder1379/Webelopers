@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm, CourseForm
-from home.models import Course
+from home.models import Course, Student
 
 
 def homePage(request):
@@ -28,7 +28,10 @@ def register(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            student = Student()
+            student.user = user
+            student.save()
     return render(request, 'register.html',
                   {'form': form, 'register_button': True, 'sign_in_button': True, 'exit_button': False})
 
@@ -40,11 +43,6 @@ def sign_in(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if not user.student:
-                student = Student.objects.create()
-                student.user = user
-                student.save()
-                user.save()
             return redirect("/")
         else:
             return render(request, 'sign_in.html',
@@ -85,13 +83,15 @@ def edit_profile_done(request):
     if request.POST:
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        photo = request.POST['photo']
+        photo = request.FILES.get('photo')
         if first_name != "":
             request.user.first_name = first_name
         if last_name != "":
             request.user.last_name = last_name
         if photo:
-            request.user.student.profile_photo = photo
+            student = Student.objects.get(user=request.user)
+            student.profile_photo = photo
+            student.save()
         request.user.save()
     return profile(request)
 
@@ -109,7 +109,8 @@ def contact_us(request):
 
 
 def profile(request):
-    return render(request, 'profile.html')
+    student = Student.objects.get(user=request.user)
+    return render(request, 'profile.html', {'img':student.profile_photo})
 
 
 def all_courses(request):
@@ -122,10 +123,10 @@ def all_courses(request):
         else:
             courses = Course.objects.filter(department=query_text)
         search_courses = True
-        all_courses = False
+        all_course = False
     else:
         courses = Course.objects.all()
         search_courses = False
-        all_courses = True
+        all_course = True
     return render(request, 'all_courses.html',
-                  {'courses': courses, 'all_courses': all_courses, 'search_courses': search_courses})
+                  {'courses': courses, 'all_courses': all_course, 'search_courses': search_courses})
