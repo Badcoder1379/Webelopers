@@ -108,11 +108,11 @@ def all_courses(request):
     if request.method == 'POST':
         query_text = request.POST['search_query']
         if request.POST.get('teacher'):
-            courses = Course.objects.filter(teacher=query_text)
+            courses = Course.objects.filter(teacher=query_text).all()
         elif request.POST.get('course'):
-            courses = Course.objects.filter(name=query_text)
+            courses = Course.objects.filter(name=query_text).all()
         else:
-            courses = Course.objects.filter(department=query_text)
+            courses = Course.objects.filter(department=query_text).all()
         search_state = True
     else:
         courses = Course.objects.all()
