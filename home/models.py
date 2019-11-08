@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 class IntegerRangeField(models.IntegerField):
@@ -20,5 +21,5 @@ class Course(models.Model):
     teacher = models.CharField(max_length=100)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    first_day = IntegerRangeField(min_value=0 , max_value=4)
+    first_day = IntegerRangeField(min_value=0, max_value=4)
     second_day = IntegerRangeField(min_value=0, max_value=4)

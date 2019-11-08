@@ -1,6 +1,17 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+
+from home.models import Course
+
+
+class CourseForm(ModelForm):
+    class Meta:
+        model = Course
+        fields = ['name', 'department', 'course_number', 'group_number', 'teacher', 'start_time', 'end_time',
+                  'first_day', 'second_day']
+
 
 
 class SignUpForm(UserCreationForm):

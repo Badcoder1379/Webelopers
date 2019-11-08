@@ -38,7 +38,7 @@
 
     <div>
         <strong id="h">Add Course</strong>
-        <form id="make_course" class="ui form margin" action="{% url 'register' %}" method="post">{% csrf_token %}
+        <form id="make_course" class="ui form margin" action="{% url 'add_course_page' %}" method="post">{% csrf_token %}
             <div class="field">
                 <label>Department</label>
                 <div class="ui left icon input">
@@ -68,14 +68,14 @@
             <div class="field">
                 <label>Start Time</label>
                 <div class="ui left icon input">
-                    <input type="time" name="start_time" placeholder="hrs:mins">
+                    <input type="text" name="start_time" placeholder="Start Time">
                     <i class="clock icon"></i>
                 </div>
             </div>
             <div class="field">
                 <label>End Time</label>
                 <div class="ui left icon input">
-                    <input type="time" name="end_time" placeholder="End Time">
+                    <input type="text" name="end_time" placeholder="End Time">
                     <i class="clock icon"></i>
                 </div>
             </div>

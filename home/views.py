@@ -2,11 +2,23 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
-from home.forms import SignUpForm
+from home.forms import SignUpForm, CourseForm
 
 
 def homePage(request):
     return render(request, 'home.html', {'register_button': True, 'sign_in_button': True, 'exit_button': False})
+
+
+def add_course_page(request):
+    form = CourseForm()
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        form.save()
+    return render(request, 'add_course.html')
+
+
+def add_course(request):
+    return render(request, 'add_course.html')
 
 
 def register(request):
@@ -79,9 +91,6 @@ def panel(request):
 def contact_us(request):
     return render(request, 'contact_us.html')
 
-
-def add_course(request):
-    return render(request, 'add_course.html')
 
 def profile(request):
     return render(request, 'profile.html')

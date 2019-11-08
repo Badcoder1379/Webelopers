@@ -25,6 +25,7 @@ urlpatterns = [
     url('sign_in/', views.sign_in, name='sign_in'),
     url('login/', views.login, name='login'),
     url('edit_profile/', views.edit_profile, name='edit_profile'),
+    url('add_course_page/', views.add_course_page, name='add_course_page'),
     url('add_course/', views.add_course, name='add_course'),
     url('logout/', views.logout_view, name='logout'),
     url('panel/', views.panel, name='panel'),
