@@ -38,7 +38,8 @@
 
     <div>
         <strong id="h">Add Course</strong>
-        <form id="make_course" class="ui form margin" action="{% url 'add_course_page' %}" method="post">{% csrf_token %}
+        <form id="make_course" class="ui form margin" action="{% url 'add_course_page' %}"
+              method="post">{% csrf_token %}
             <div class="field">
                 <label>Department</label>
                 <div class="ui left icon input">
@@ -82,7 +83,6 @@
             <div class="field">
                 <label>First Day</label>
                 <div class="ui left icon input">
-                    &emsp;&emsp;&emsp;
                     <select name="first_day">
                         <option value="" disabled selected></option>
                         <option value="0"> Saturday</option>
@@ -97,7 +97,6 @@
             <div class="field">
                 <label>Second Day</label>
                 <div class="ui left icon input">
-                    &emsp;&emsp;&emsp;
                     <select name="second_day">
                         <option value="" disabled selected></option>
                         <option value="0"> Saturday</option>
@@ -107,6 +106,13 @@
                         <option value="4"> Wednesday</option>
                     </select>
                     <i class="calendar alternate outline icon"></i>
+                </div>
+            </div>
+            <div>
+                <label>Exam Data</label>
+                <div class="ui left icon input">
+                    <input type="date" name="exam_date" placeholder="Exam Date">
+                    <i class="calendar alternate icon"></i>
                 </div>
             </div>
             <button class="ui button" type="submit" name="submit">Create Course!</button>
