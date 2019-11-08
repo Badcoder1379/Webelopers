@@ -41,7 +41,9 @@
         <div class="ui center aligned basic segment">
             <div class="ui card">
                 {% load static %}
+                {% if flag %}
                 <img id="profile_image" src="/media/{{ img }}">
+                {% endif %}
             </div>
 
             <div class="ui horizontal divider">

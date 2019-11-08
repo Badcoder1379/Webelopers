@@ -120,7 +120,11 @@ def contact_us(request):
 
 def profile(request):
     student = Student.objects.get(user=request.user)
-    return render(request, 'profile.html', {'img': student.profile_photo})
+    img = student.profile_photo
+    flag = True
+    if not img:
+        flag = False
+    return render(request, 'profile.html', {'img': student.profile_photo, 'flag': flag})
 
 
 def all_courses(request):
