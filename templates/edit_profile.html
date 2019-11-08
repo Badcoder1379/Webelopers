@@ -46,6 +46,11 @@
             <label>Last Name</label>
             <input type="text" name="last_name" placeholder= {{ request.user.last_name }}>
         </div>
+         <div class="field">
+            <label>Profile Photo</label>
+             {% load static %}
+            <input type="file" name="photo" placeholder= {{ request.user.profile_photo }}>
+        </div>
         <button class="ui button" type="submit">Submit</button>
     </form>
 {% endblock %}

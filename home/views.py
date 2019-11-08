@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from home.forms import SignUpForm, CourseForm
-from home.models import Course
+from home.models import Course, Student
 
 
 def homePage(request):
@@ -40,6 +40,11 @@ def sign_in(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            if not user.student:
+                student = Student.objects.create()
+                student.user = user
+                student.save()
+                user.save()
             return redirect("/")
         else:
             return render(request, 'sign_in.html',
@@ -80,10 +85,13 @@ def edit_profile_done(request):
     if request.POST:
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
+        photo = request.POST['photo']
         if first_name != "":
             request.user.first_name = first_name
         if last_name != "":
             request.user.last_name = last_name
+        if photo:
+            request.user.student.profile_photo = photo
         request.user.save()
     return profile(request)
 
@@ -113,7 +121,7 @@ def all_courses(request):
     else:
         courses = Course.objects.all()
 
-    return render(request, 'all_courses.html', {'courses': courses , 'search': search_field})
+    return render(request, 'all_courses.html', {'courses': courses, 'search': search_field})
 
 
 def search_courses(request):

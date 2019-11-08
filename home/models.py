@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.forms import ModelForm
 
@@ -23,3 +24,8 @@ class Course(models.Model):
     end_time = models.TimeField()
     first_day = IntegerRangeField(min_value=0, max_value=4)
     second_day = IntegerRangeField(min_value=0, max_value=4)
+
+
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_photo = models.FileField(null=True, upload_to="media/profile/")
