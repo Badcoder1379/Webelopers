@@ -40,38 +40,56 @@
     </head>
 
     <div>
-        <strong id="h">Register form</strong>
+        <strong id="h">Sign Up!</strong>
         <form id="register_form" class="ui form margin" action="{% url 'register' %}" method="post">{% csrf_token %}
             <div class="field">
                 <label>First Name</label>
-                <input type="text" name="first_name" placeholder="First Name">
+                <div class="ui left icon input">
+                    <input type="text" name="first_name" placeholder="First Name">
+                    <i class="user circle icon"></i>
+                </div>
             </div>
             <div class="field">
                 <label>Last Name</label>
-                <input type="text" name="last_name" placeholder="Last Name">
+                <div class="ui left icon input">
+                    <input type="text" name="last_name" placeholder="Last Name">
+                    <i class="user circle icon"></i>
+                </div>
             </div>
             <div class="field">
-                <label>username</label>
-                <input type="text" name="username" placeholder="username">
+                <label>Username</label>
+                <div class="ui left icon input">
+                    <input type="text" name="username" placeholder="Username">
+                    <i class="user circle icon"></i>
+                </div>
             </div>
-            <div class="Email">
+            <div class="field">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Email">
+                <div class="ui left icon input">
+                    <input type="email" name="email" placeholder="Email">
+                    <i class="envelope outline icon"></i>
+                </div>
             </div>
             <div class="field">
                 <label>Password</label>
-                <input type="password" name="password1" placeholder="Password">
+                <div class="ui left icon input">
+                    <input type="password" name="password1" placeholder="Password">
+                    <i class="lock icon"></i>
+                </div>
             </div>
             <div class="field">
                 <label>Confirm Password</label>
-                <input type="password" name="password2" placeholder="Confirm Password">
+                <div class="ui left icon input">
+                    <input type="password" name="password2" placeholder="Confirm Password">
+                    <i class="lock icon"></i>
+                </div>
             </div>
-            <button class="ui button" type="submit" name="submit">Submit</button>
+            <button class="ui button" type="submit" name="submit">Sign Up!</button>
         </form>
         <div id="errors" class="margin">
             {% for field in form %}
                 <div class="ui red message" style="margin-top: 30px; text-align: center; font-size: 20px;" dir="rtl">
-                        <h5 class="ui header"> {{ field.errors }}</h5>
+                    <h5 class="ui header"> {{ field.errors }}</h5>
                 </div>
             {% endfor %}
         </div>

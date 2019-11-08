@@ -23,11 +23,12 @@
                 border: solid #888888 3px;
                 background-color: white;
             }
-            #h{
+
+            #h {
                 display: flex;
                 justify-content: center;
                 align-content: center;
-                margin-top : 3%;
+                margin-top: 3%;
                 font-weight: bold;
                 font-size: 30px;
                 color: #666666;
@@ -38,21 +39,24 @@
     <div>
 
         <strong id="h">
-            Contact us!
+            Contact Us!
         </strong>
         <form id="contact_us_form" class="ui form" action="{% url 'contact_us_done' %}" method="post">{% csrf_token %}
             <div class="field">
-                <h3>عنوان</h3>
+                <h3>Title</h3>
                 <input type="text" name="title" placeholder="Title" required>
             </div>
 
             <div class="field">
-                <h3>ایمیل</h3>
-                <input type="email" name="email" placeholder="Email" required>
+                <h3>E-mail</h3>
+                <div class="ui left icon input">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class="envelope outline icon"></i>
+                </div>
             </div>
 
             <div class="field">
-                <h3>متن</h3>
+                <h3>Text</h3>
                 <textarea name="text" placeholder="Text" required maxlength="250" minlength="10"></textarea>
             </div>
             <button class="ui secondary button" type="submit">Submit</button>
