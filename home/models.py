@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.forms import ModelForm
 
 
 class IntegerRangeField(models.IntegerField):
@@ -24,6 +23,7 @@ class Course(models.Model):
     end_time = models.TimeField()
     first_day = IntegerRangeField(min_value=0, max_value=4)
     second_day = IntegerRangeField(min_value=0, max_value=4)
+    exam_date = models.DateField(null=True, blank=False)
 
 
 
