@@ -50,7 +50,7 @@ def contact_us_done(request):
         request.POST['title'],
         request.POST['email'] + "\n" + request.POST['text'],
         'joorabnakhi@gmail.com',
-        ['heidary13794@gmail.com']
+        ['webe19lopers@gmail.com']
     )
 
     return render(request, 'contact_us_done.html',
