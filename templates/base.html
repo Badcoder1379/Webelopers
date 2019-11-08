@@ -30,6 +30,9 @@
                     <a class="item" id="login" href="{% url 'sign_in' %}">ورود</a>
                 {% endif %}
 
+                {% if request.user.is_authenticated %}
+                    <a class="item" id="profile" href="{% url 'edit_profile' %}">پروفایل کاربر</a>
+                {% endif %}
 
                 {% if request.user.is_authenticated %}
                     <a class="item" id="panel" href="{% url 'panel' %}">پنل کاربر</a>

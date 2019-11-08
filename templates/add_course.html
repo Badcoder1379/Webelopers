@@ -4,8 +4,113 @@
     Add Course
 {% endblock %}
 
-
 {% block navbar %}
 {% endblock %}
 {% block content %}
+    <head>
+        <style>
+            .margin {
+                margin: 5%;
+                margin-top: 2%;
+                margin-left: 30%;
+                margin-right: 30%;
+            }
+
+            #make_course {
+                background-color: whitesmoke;
+                padding: 3%;
+                border-radius: 3%;
+                border: solid #888888 3px;
+                background-color: white;
+            }
+
+            #h {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin-top: 3%;
+                font-weight: bold;
+                font-size: 30px;
+                color: #666666;
+            }
+        </style>
+    </head>
+
+    <div>
+        <strong id="h">Add Course</strong>
+        <form id="make_course" class="ui form margin" action="{% url 'register' %}" method="post">{% csrf_token %}
+            <div class="field">
+                <label>Department</label>
+                <div class="ui left icon input">
+                    <input type="text" name="department" placeholder="Department">
+                    <i class="building icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>Course Name</label>
+                <input type="text" name="name" placeholder="Course Name">
+            </div>
+            <div class="field">
+                <label>Course Number</label>
+                <input type="text" name="course_number" placeholder="Course Number">
+            </div>
+            <div class="field">
+                <label>Group Number</label>
+                <input type="text" name="group_number" placeholder="Group Number">
+            </div>
+            <div class="field">
+                <label>Teacher</label>
+                <div class="ui left icon input">
+                    <input type="text" name="teacher" placeholder="Teacher">
+                    <i class="user circle icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>Start Time</label>
+                <div class="ui left icon input">
+                    <input type="time" name="start_time" placeholder="hrs:mins">
+                    <i class="clock icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>End Time</label>
+                <div class="ui left icon input">
+                    <input type="time" name="end_time" placeholder="End Time">
+                    <i class="clock icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>First Day</label>
+                <div class="ui left icon input">
+                    &emsp;&emsp;&emsp;
+                    <select name="first_day">
+                        <option value="" disabled selected></option>
+                        <option value="0"> Saturday</option>
+                        <option value="1"> Monday</option>
+                        <option value="2"> Sunday</option>
+                        <option value="3"> Thursday</option>
+                        <option value="4"> Wednesday</option>
+                    </select>
+                    <i class="calendar alternate outline icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>Second Day</label>
+                <div class="ui left icon input">
+                    &emsp;&emsp;&emsp;
+                    <select name="second_day">
+                        <option value="" disabled selected></option>
+                        <option value="0"> Saturday</option>
+                        <option value="1"> Monday</option>
+                        <option value="2"> Sunday</option>
+                        <option value="3"> Thursday</option>
+                        <option value="4"> Wednesday</option>
+                    </select>
+                    <i class="calendar alternate outline icon"></i>
+                </div>
+            </div>
+            <button class="ui button" type="submit" name="submit">Create Course!</button>
+        </form>
+    </div>
+
 {% endblock %}
