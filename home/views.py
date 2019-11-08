@@ -46,15 +46,22 @@ def sign_in(request):
 
 
 def contact_us_done(request):
-    send_mail(
-        request.POST['title'],
-        request.POST['email'] + "\n" + request.POST['text'],
-        'joorabnakhi@gmail.com',
-        ['heidary13794@gmail.com']
-    )
-
-    return render(request, 'contact_us_done.html',
-                  {'register_button': True, 'sign_in_button': True, 'exit_button': False})
+    flag = True
+    text = request.POST['text']
+    if len(text) > 250:
+        flag = False
+    if len(text) < 10:
+        flag = False
+    if flag:
+        send_mail(
+            request.POST['title'],
+            request.POST['email'] + "\n" + text,
+            'joorabnakhi@gmail.com',
+            ['webe19lopers@gmail.com']
+        )
+        return render(request, 'contact_us_done.html')
+    else:
+        return contact_us(request)
 
 
 def login_view(request):
@@ -97,3 +104,4 @@ def profile(request):
 
 def all_courses(request):
     return render(request, 'all_courses.html')
+
