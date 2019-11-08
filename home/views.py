@@ -105,4 +105,16 @@ def profile(request):
 
 
 def all_courses(request):
-    return render(request, 'all_courses.html', {'courses': Course.objects.all()})
+    search_field = False
+    if request.method == 'POST':
+        search_field = True
+        department = request.POST['search_query']
+        courses = Course.objects.filter(department=department)
+    else:
+        courses = Course.objects.all()
+
+    return render(request, 'all_courses.html', {'courses': courses , 'search': search_field})
+
+
+def search_courses(request):
+    return all_courses(request)
