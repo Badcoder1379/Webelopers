@@ -42,14 +42,10 @@
 
     <strong id="h">All Courses</strong>
     <div class="container">
-
         <div id="all_courses" class="ui center aligned basic segment">
             {% for cours in courses %}
-
                 <table class="ui red table">
                     <tbody>
-
-
                     <tr>
                         <td><h4>{{ cours.name }}</h4></td>
                     </tr>
@@ -57,9 +53,10 @@
                         <td>
                             <pre>Department : </pre>
                         </td>
-                        <td><div>{{ cours.department }}</div></td>
+                        <td>
+                            <div>{{ cours.department }}</div>
+                        </td>
                     </tr>
-
                     <tr>
                         <td>
                             <pre>Course days : </pre>
@@ -74,38 +71,28 @@
                         <td>
                             <pre>Course days : </pre>
                         </td>
-                        <td><div>{{ cours.start_time }}
-                            <strnog>,</strnog>
-                            {{ cours.end_time }}</div></td>
+                        <td>
+                            <div>{{ cours.start_time }}
+                                <strnog>,</strnog>
+                                {{ cours.end_time }}</div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <pre>Teacher : </pre>
                         </td>
-                        <td><div>{{ cours.teacher }}</div></td>
+                        <td>
+                            <div>{{ cours.teacher }}</div>
+                        </td>
                     </tr>
-
                     </tbody>
                 </table>
-
                 <div class="ui horizontal divider">
                     Or
                 </div>
             {% endfor %}
-
-        </div>
-
-
-    </div>
-    </div>
-
-
-
-
-
-    <div class="all_courses">
-        <div class="ui center aligned basic segment">
-
         </div>
     </div>
+    </div>
+
 {% endblock %}
